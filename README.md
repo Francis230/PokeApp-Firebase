@@ -1,41 +1,37 @@
-# PokeFinder - README
+# **PokeFinder - README**
 
 ## Descripción
 
-**PokeFinder** es una aplicación móvil interactiva creada con **Ionic** y **Angular** que permite a los usuarios buscar información detallada sobre sus Pokémon favoritos. Gracias a la integración con la **PokeAPI**, los usuarios pueden explorar las estadísticas, habilidades y características de cada Pokémon. Además, los usuarios pueden guardar sus Pokémon favoritos en **Firebase** y añadir una reseña personal.
+¡Bienvenido a **PokeFinder**! Una aplicación móvil diseñada para los amantes de Pokémon. Con **PokeFinder**, podrás explorar los detalles de tus Pokémon favoritos, como sus estadísticas, habilidades, imágenes y más, directamente desde tu móvil. Además, tendrás la capacidad de guardar tus Pokémon preferidos junto con reseñas personalizadas utilizando **Firebase**.
 
-Con **PokeFinder**, los entrenadores Pokémon pueden disfrutar de una experiencia divertida y educativa mientras exploran el mundo de los Pokémon, almacenando sus favoritos y compartiendo sus opiniones con la comunidad.
+Desarrollada con **Ionic** y **Angular Standalone**, y respaldada por **Firebase** para almacenar la información, esta aplicación es perfecta tanto para entrenadores Pokémon novatos como para los más experimentados. ¡Atrévete a descubrirlos todos!
 
 ---
 
 ## Características Principales
 
-* **Búsqueda de Pokémon**: Los usuarios pueden buscar Pokémon por nombre para ver detalles como su altura, peso, estadísticas de combate y habilidades.
-* **Vista Detallada**: Una página dedicada con información completa sobre un Pokémon, que incluye una imagen y estadísticas.
-* **Reseñas Personalizadas**: Los usuarios pueden escribir reseñas personales sobre cada Pokémon y guardarlas en Firebase.
-* **Guardado en Firebase**: Cada Pokémon guardado en la aplicación puede almacenarse en **Firebase Firestore**, permitiendo que las reseñas y la información se persistan.
-* **Interfaz Amigable y Adaptativa**: Utiliza **Ionic** para garantizar una experiencia fluida en dispositivos móviles.
+* **Búsqueda de Pokémon**: Los usuarios pueden buscar cualquier Pokémon por su nombre y obtener información detallada.
+* **Vista Detallada**: Al seleccionar un Pokémon, podrás ver su imagen, altura, peso, estadísticas y habilidades.
+* **Reseñas Personalizadas**: Los usuarios pueden agregar reseñas y comentarios sobre cada Pokémon y guardarlos en Firebase.
+* **Guardado en Firebase**: La aplicación permite almacenar los Pokémon que te gustan junto con tus reseñas para que puedas acceder a ellos en cualquier momento.
+* **Interfaz Adaptativa**: Gracias a **Ionic**, la app se adapta a dispositivos móviles de cualquier tamaño y resolución.
 
 ---
 
 ## Tecnologías Utilizadas
 
-* **Ionic**: Framework para crear aplicaciones móviles nativas híbridas.
-* **Angular**: Framework para el desarrollo web basado en componentes.
-* **Firebase**: Base de datos en tiempo real para almacenar los datos de los Pokémon guardados por el usuario.
-* **PokeAPI**: API que proporciona información sobre los Pokémon de manera dinámica.
-* **Firestore**: Servicio de almacenamiento en la nube proporcionado por Firebase.
+* **Ionic**: Framework híbrido para desarrollar aplicaciones móviles con una sola base de código.
+* **Angular**: Framework de JavaScript que permite el desarrollo de aplicaciones web modernas y de alto rendimiento.
+* **Firebase**: Servicio de base de datos en tiempo real que se utiliza para guardar y recuperar la información de los Pokémon y reseñas.
+* **PokeAPI**: API que ofrece información pública sobre los Pokémon, que es utilizada para obtener datos detallados sobre cada Pokémon.
 
 ---
 
 ## Estructura del Proyecto
 
-### Rutas (app.routes.ts)
+### **1. Rutas (app.routes.ts)**
 
-La aplicación cuenta con dos rutas principales:
-
-1. **HomePage**: Pantalla inicial donde se puede buscar y ver una lista de Pokémon.
-2. **PokemonDetailPage**: Página que muestra los detalles completos de un Pokémon, incluidas sus estadísticas y una opción para guardar una reseña.
+El archivo de rutas define dos páginas principales: la página de inicio (`HomePage`) y la página de detalles del Pokémon (`PokemonDetailPage`).
 
 ```typescript
 import { Routes } from '@angular/router';
@@ -48,9 +44,9 @@ export const routes: Routes = [
 ];
 ```
 
-### Componente Principal (app.component.ts)
+### **2. Componente Principal (app.component.ts)**
 
-Este componente sirve como punto de entrada a la aplicación, con el `RouterOutlet` de Angular para cargar las vistas correspondientes.
+El componente principal de la aplicación es el punto de entrada, y contiene un `RouterOutlet` para manejar las rutas y vistas dinámicas.
 
 ```typescript
 import { Component } from '@angular/core';
@@ -66,9 +62,9 @@ import { RouterModule } from '@angular/router';
 export class AppComponent {}
 ```
 
-### Página de Detalle de Pokémon (pokemon-detail.page.ts)
+### **3. Página de Detalle de Pokémon (pokemon-detail.page.ts)**
 
-Esta página muestra la información detallada de un Pokémon, incluyendo una opción para añadir reseñas personales. Los datos se obtienen de la **PokeAPI** y se almacenan en **Firebase**.
+Esta página muestra los detalles completos de un Pokémon seleccionado. Permite también agregar reseñas y guardarlas en Firebase.
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -126,9 +122,9 @@ export class PokemonDetailPage implements OnInit {
 }
 ```
 
-### Servicio de Pokémon (pokemon.service.ts)
+### **4. Servicio de Pokémon (pokemon.service.ts)**
 
-Este servicio se encarga de obtener los datos de los Pokémon desde la **PokeAPI**.
+Este servicio se encarga de obtener los datos de los Pokémon desde **PokeAPI**.
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -145,9 +141,9 @@ export class PokemonService {
 }
 ```
 
-### Servicio de Firebase (firebase.service.ts)
+### **5. Servicio de Firebase (firebase.service.ts)**
 
-Este servicio permite almacenar los datos de los Pokémon guardados en **Firebase Firestore**.
+Este servicio permite guardar la información del Pokémon junto con la reseña del usuario en **Firestore**.
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -168,25 +164,25 @@ export class FirebaseService {
 
 ## Instrucciones de Instalación
 
-1. **Clona el repositorio**:
+1. **Clonar el Repositorio**:
 
    ```bash
    git clone https://github.com/tu-usuario/pokefinder.git
    cd pokefinder
    ```
 
-2. **Instala las dependencias**:
+2. **Instalar Dependencias**:
 
    ```bash
    npm install
    ```
 
-3. **Configura Firebase**:
+3. **Configurar Firebase**:
 
-   * Crea un proyecto en Firebase y obtiene las credenciales de tu base de datos de Firestore.
-   * Agrega estas credenciales en tu archivo `src/environments/environment.ts`.
+   * Crea un proyecto en [Firebase](https://firebase.google.com/) y obtiene las credenciales de tu base de datos de Firestore.
+   * Agrega las credenciales en el archivo `src/environments/environment.ts`.
 
-4. **Ejecuta la aplicación**:
+4. **Ejecutar la Aplicación**:
 
    ```bash
    ionic serve
@@ -194,7 +190,28 @@ export class FirebaseService {
 
 ---
 
-## Contribución
+## Galería de Imágenes
+
+A continuación se muestran algunas capturas de pantalla de la aplicación en funcionamiento:
+
+### 1. **Pantalla de Búsqueda de Pokémon**
+![image](https://github.com/user-attachments/assets/8ea73928-b11f-4def-bdcf-c0f52b28594c)
+
+
+
+### 2. **Página de Detalles del Pokémon**
+
+![image](https://github.com/user-attachments/assets/7734eb62-a584-4d66-a728-268f9e07d552)
+
+
+### 3. **Formulario de Reseña de Pokémon**
+![image](https://github.com/user-attachments/assets/98980e67-683c-4cd8-87f5-5bd9675ba56f)
+
+
+
+---
+
+## Contribuciones
 
 ¡Las contribuciones son bienvenidas! Si encuentras algún error o deseas agregar nuevas características, puedes hacer un **fork** del repositorio, realizar tus cambios y enviar un **pull request**.
 
@@ -206,4 +223,5 @@ Este proyecto está bajo la **Licencia MIT**. Puedes usarlo, modificarlo y distr
 
 ---
 
-¡Esperamos que disfrutes de tu aventura Pokémon con **PokeFinder**! ¡Sigue explorando y coleccionando todos los Pokémon! 🐾🎮
+¡Gracias por usar **PokeFinder**! ¡Sigue explorando y coleccionando todos los Pokémon! 🐾🎮
+
