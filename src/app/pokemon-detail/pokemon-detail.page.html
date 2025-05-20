@@ -6,34 +6,41 @@
 
 <ion-content class="ion-padding" fullscreen>
   <div class="container">
-    <ion-img [src]="pokemon?.sprites.front_default" class="pokemon-image"></ion-img>
+    <ion-img [src]="pokemon?.sprites.front_default" class="pokemon-image" alt="Imagen de Pokémon"></ion-img>
 
-    <ion-list lines="none" class="details-list">
-      <ion-item>
-        <ion-label class="detail-label">Height:</ion-label>
-        <ion-text>{{ pokemon?.height }}</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-label class="detail-label">Weight:</ion-label>
-        <ion-text>{{ pokemon?.weight }}</ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-label class="detail-label">Type:</ion-label>
-        <ion-text>
-          <ng-container *ngFor="let type of pokemon?.types; let last = last">
-            {{ type.type.name }}<span *ngIf="!last">, </span>
-          </ng-container>
-        </ion-text>
-      </ion-item>
-    </ion-list>
+    <ion-card class="details-card">
+      <ion-card-content>
+        <ion-list lines="none" class="details-list">
+          <ion-item>
+            <ion-label class="detail-label">Altura:</ion-label>
+            <ion-text>{{ pokemon?.height }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label class="detail-label">Peso:</ion-label>
+            <ion-text>{{ pokemon?.weight }}</ion-text>
+          </ion-item>
+          <ion-item>
+            <ion-label class="detail-label">Tipo:</ion-label>
+            <ion-text>
+              <ng-container *ngFor="let type of pokemon?.types; let last = last">
+                {{ type.type.name }}<span *ngIf="!last">, </span>
+              </ng-container>
+            </ion-text>
+          </ion-item>
+        </ion-list>
 
-    <ion-item>
-      <ion-label position="floating">Escribe una reseña</ion-label>
-      <ion-textarea rows="4" [(ngModel)]="review"></ion-textarea>
-    </ion-item>
+        <ion-item lines="full" class="review-item">
+          <ion-label position="floating">Escribe una reseña</ion-label>
+          <ion-textarea autoGrow rows="4" [(ngModel)]="review" class="review-textarea"></ion-textarea>
+        </ion-item>
 
-    <ion-button expand="block" size="large" (click)="guardar()" class="save-button">Guardar</ion-button>
+        <ion-button expand="block" size="large" color="success" (click)="guardar()" class="save-button">
+          Guardar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
   </div>
 </ion-content>
+
 
 

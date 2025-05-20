@@ -1,17 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Buscar Pokémon</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Buscar Pokémon</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-item>
-    <ion-label position="floating">Nombre del Pokémon</ion-label>
-    <ion-input [(ngModel)]="search" placeholder="Ej: pikachu"></ion-input>
-  </ion-item>
+<ion-content class="ion-padding" fullscreen>
+  <div class="search-container">
+    <ion-card class="search-card">
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">
+          🔍 Encuentra tu Pokémon
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-item lines="full" class="input-item">
+          <ion-label position="floating">Nombre del Pokémon</ion-label>
+          <ion-input [(ngModel)]="search" placeholder="Ej: pikachu" class="large-input"></ion-input>
+        </ion-item>
 
-  <ion-button expand="full" [routerLink]="['/pokemon', search]">
-    Buscar
-  </ion-button>
+        <ion-button expand="block" size="large" color="success" class="ion-margin-top" [routerLink]="['/pokemon', search]" [disabled]="!search">
+          Buscar
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>
+
+
 
